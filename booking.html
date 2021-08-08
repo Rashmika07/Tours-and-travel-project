@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@1,200;1,400&display=swap" rel="stylesheet">
+	
+	<title></title>
+	<style>
+		
+		#page{
+			background-image: url(https://wallpaperaccess.com/full/378783.jpg);
+			height: 680px;
+
+			font-size: 23px; 
+			
+
+
+		}
+		.text {padding-left: 450px;
+			padding-top: 100px;
+			font-family: 'Yomogi', cursive;
+			font-weight: bold;
+
+		}
+		#submit{border-radius: 10px;
+			border-style: solid;
+			border-color: black;
+			font-size: 25px;
+			font-family: 'Newsreader', serif;
+			background-color: black;
+			color: white;
+
+		}
+		.package{
+             padding: 10px;
+		color:white;    
+		}
+		.submit{padding-left: 100px;
+			margin-top: 30px;
+		}
+		#ok{
+			border-style: solid;
+			border-color: black;
+			background-color: black;
+			color: white;
+			margin-left: 440px;
+			position: absolute;
+			margin-top: -20px;
+
+		}
+		#cok{
+			border-style: solid;
+			border-color: black;
+			background-color: black;
+			color: white;
+		margin-top: 6px;
+			position: absolute;
+			margin-left: 14px;
+
+
+		
+
+		}
+		#bill-card{
+			margin-left: 176px;
+			margin-top: -55px;
+		}
+		nav{
+  width: 100%;
+  height: 60px;
+  background-color: black;
+  line-height: 27px;
+}
+nav ul{
+  float: right;
+  margin-right: 30px;
+}
+nav ul li{
+  list-style-type: none;
+  display: inline-block;
+  transition: 0.7s all;
+}
+nav ul li:hover{
+  background-color:grey;
+}
+nav ul li a{
+  text-decoration: none;
+  color: white;
+  padding: 30px;
+}
+	</style>
+	
+</head>
+<body>
+	<div id="abc">
+    <nav>
+        <ul>
+            
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </nav>
+</div>
+	<form name="payment" id="page"  >
+		<div class="text">
+			<div>
+				<label>Enter Username :</label>
+				<input type="text" name="username" required=""><br><br>
+			</div>
+			<div>
+				<label>Date of Travel:</label>
+				<input type="date" name="dot" required=""><br><br>
+			</div>
+
+			<div>
+                
+                        <label>Select Your Package</label>
+                        <select id="package" required="">
+                            <option value="19500">Himachal Pradesh Package 1</option>
+              <option value="20100">Himachal Pradesh Package 2</option>
+              <option value="11999">Rajasthan Package 1</option>
+              <option value="17999">Rajasthan Package 2</option>
+              <option value="10500">Kerala Package 1</option>
+              <option value="20000">KeralaPackage 2</option>
+                        </select>
+                    </div><br>
+
+                    <div>
+                        <label>Number of Passengers</label>
+                            <input type="text" id="passengers" placeholder="" required="">
+                            </div>
+                            <button type="button"  id="ok" onclick="calcTip()"> OK</button><br/>
+                        
+                                  
+                          
+                                <div>
+                                	<label>Total amount:</label>
+                                    
+                         <div id="bill-card">    
+                        <div id="total">
+                            <p id="total-p"> </p>
+                        </div>
+                    </div><br/>
+                
+                  <label>Make Payment:</label><br/><br/>
+
+                     <input type="radio" name="mode" id="mode" required="" value="credit">Credit/Debit Card</label><br/>
+
+                      
+                
+              
+            
+
+          
+                     
+                     <input type="radio" name="mode" id="mode" required="" value="net">Net Banking</label><br/>
+
+                     
+                     <input type="radio" name="mode" id="mode" required="" value="upi"> BHIM/UPI  </label> <br/>
+              
+
+
+
+                  <div class="submit">
+                  	<button id="ok" onclick ="success()">Submit </button><br/>
+
+				     
+			     </div>
+
+        
+			
+				
+			</div>
+			
+		
+	</form>
+	<script>
+        
+        function calcTip(){
+
+    // grab the input values
+    let tipAmount= document.getElementById("package").value;
+    let billAmount = document.getElementById("passengers").value;
+    let billCard = document.getElementById("bill-card");
+
+    //turn strings into numbers
+    let tipAmountNumber = parseFloat(tipAmount);
+    let billAmountNumber = parseFloat(billAmount);
+    
+    //grab elements
+    
+    let total = document.getElementById('total-p');
+
+    // calculations
+    let totalAmount = (tipAmount * billAmountNumber);
+    let totalBill = totalAmount + billAmountNumber;
+
+    //append content
+    
+    total.innerHTML = "Rs." + totalBill.toFixed(2);
+    
+    // show the bill info 
+    billCard.style.display = "block";
+    
+}
+
+
+
+ 
+    </script>
+   <script>
+   	function success(){
+   		payment();
+   		bid();
+   		feedback();
+   	}
+   </script>
+   <script>
+function payment() {
+alert('Payment Successful!');
+}
+</script>
+<script>
+function bid()
+{
+	 var d = new Date();
+  var n = d.valueOf();
+	alert('Thank you for booking with us! Your booking id is '+ n);
+	
+}
+</script>
+<script>
+	function feedback(){
+	var doc = prompt("Please give us your feedback");
+            if (doc != null) {
+                alert('Thank you for your feedback!');
+            }
+            }
+	</script>
+</body>
+</html>
